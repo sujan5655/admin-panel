@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex">
+  <div class="sidebar w-64 bg-gray-800 text-white p-5">
+    <h2 class="text-lg font-bold">Admin Panel</h2>
+    <a href="{% url 'register' %}" class="block py-2 hover:bg-gray-700">Register</a>
+    <a href="{% url 'loginpage' %}" class="block py-2 hover:bg-gray-700">Login</a>
+    <a href="{% url 'home' %}" class="block py-2 hover:bg-gray-700">Home</a>
+    <a href="#" class="block py-2 hover:bg-gray-700">Settings</a>
+    <a href="{% url 'logout' %}" class="block py-2 hover:bg-gray-700">Logout</a> <!-- Logout Link -->
+  </div>
+  <div class="main-content flex-grow p-5">
+    <div class="header bg-gray-200 p-4 border-b">
+      <h1 class="text-xl font-bold">Welcome to the Admin Panel</h1>
+    </div>
+    <div id="dashboard" class="mt-4">
+      <h2 class="text-lg font-semibold">Dashboard</h2>
+      <p>This is the dashboard area where you can see an overview of your application.</p>
+    </div>
+    <div id="users" class="mt-4">
+      <h2 class="text-lg font-semibold">Users Management</h2>
+      <p>Manage users here.</p>
+    </div>
+    <div id="settings" class="mt-4">
+      <h2 class="text-lg font-semibold">Settings</h2>
+      <p>Change your settings here.</p>
+    </div>
+  </div>
+</body>
+</html>
