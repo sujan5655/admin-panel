@@ -1,0 +1,30 @@
+<div class="container mx-auto">
+  <h1 class="text-2xl font-bold mb-4">Your Properties</h1>
+  
+  <table class="table-auto w-full mt-4">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Price</th>
+              <th>Available</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+        <h1>{{request.user}}</h1>
+          {% for property in properties %}
+          <tr>
+              <td>{{ property.name }}</td>
+              <td>{{ property.location }}</td>
+              <td>{{ property.price }}</td>
+              <td>{{ property.is_available }}</td>
+              <td>
+                  <a href="{% url 'update_property' property.pk %}" class="text-blue-500">Edit</a> |
+                  <a href="{% url 'delete_property' property.pk %}" class="text-red-500">Delete</a>
+              </td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>

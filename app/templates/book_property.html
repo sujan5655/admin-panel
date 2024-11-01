@@ -1,0 +1,9 @@
+<!-- book_property.html -->
+<h2>Book {{ property.name }}</h2>
+<p>{{ property.description }}</p>
+<p>Price: ${{ property.price }}</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Submit Booking Request</button>
+</form>

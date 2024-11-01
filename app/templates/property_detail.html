@@ -1,0 +1,18 @@
+<!-- property_detail.html -->
+<h1>{{ property.name }}</h1>
+<p>{{ property.description }}</p>
+<p>Price: ${{ property.price }}</p>
+<p>Location: {{ property.location }}</p>
+<p>Location: {{ property.id }}</p>
+<p>: Status{{ property.status }}</p>
+
+
+
+{% if property.is_available %}
+    <form action="{% url 'book_property' property.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit"><a href="{% url 'book_property' property.id %}">Book</a></button>
+    </form>
+{% else %}
+    <p>This property is not available for booking.</p>
+{% endif %}

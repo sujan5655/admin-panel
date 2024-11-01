@@ -1,0 +1,40 @@
+
+<h2>Your Property Bookings</h2>
+
+{% if bookings %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Client</th>
+                <th>Booking Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.property.name }}</td>
+                    <td>{{ booking.client.username }}</td>
+                    <td>{{ booking.booking_date }}</td>
+                    <td>{{ booking.approval_status|title }}</td>
+                    <td>
+                      {% if booking.approval_status == 'pending' %}
+                          <a href="{% url 'approve_booking' booking.id 'approved' %}" class="btn btn-success btn-sm">Approve</a>
+                          <a href="{% url 'approve_booking' booking.id 'rejected' %}" class="btn btn-danger btn-sm">Reject</a>
+                      {% else %}
+                          <span class="text-muted">No actions available</span>
+                      {% endif %}
+                  </td>
+                  
+                  
+                   
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No booking requests for your properties.</p>
+{% endif %}
+

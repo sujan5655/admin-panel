@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties</title>
+    <!-- Link to your CSS if any -->
+</head>
+<body>
+    <h1>Available Properties</h1>
+
+    <div class="property-list">
+        {% if property %}
+            {% for item in property %}
+                <div class="property-item">
+                    <h2>{{ item.name }}</h2>
+                    <p><strong>Location:</strong> {{ item.location }}</p>
+                    <p><strong>Price:</strong> ${{ item.price }}</p>
+                    <p><strong>Description:</strong> {{ item.description }}</p>
+                    <a href="{% url 'property_detail' item.id %}">View Details</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No properties available at the moment.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
